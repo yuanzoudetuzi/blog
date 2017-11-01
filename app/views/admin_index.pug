@@ -1,0 +1,73 @@
+doctype
+html
+    head
+        meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
+        title=title
+        link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
+        link(href="https://unpkg.com/element-ui/lib/theme-chalk/index.css",rel="stylesheet")
+        link(href="/css/admin_layout.css",rel="stylesheet")
+        link(href="/css/admin_detail.css",rel="stylesheet")
+        script(src="/libs/jquery/dist/jquery.min.js")
+        script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
+    body
+        nav.head
+            a.title 鲤.池后台管理
+            .link
+                a
+                    span.glyphicon.glyphicon-envelope(aria-hidden="true")
+                    span 消息
+                a
+                    span.glyphicon.glyphicon-heart(aria-hidden="true")
+                    span 收藏
+        main
+            nav.left
+                a.collapseItem.nav-link
+                    span.glyphicon.glyphicon-file(aria-hidden="true")
+                    span 文章管理
+                ul.el-menu
+                    li
+                        a.nav-link(href="/admin/article/write")
+                            span.glyphicon.glyphicon-edit
+                            span 写新文章
+                    li
+                        a.nav-link(href="/admin/article/list")
+                            span.glyphicon.glyphicon-th-large
+                            span 文章列表
+                a.collapseItem.nav-link
+                    span.glyphicon.glyphicon-list(aria-hidden="true")
+                    span 分类管理
+                ul.el-menu
+                    li
+                        a.nav-link(href="/admin/category/write")
+                            span.glyphicon.glyphicon-pencil
+                            span 添加分类
+                    li
+                        a.nav-link(href="/admin/category/list")
+                            span.glyphicon.glyphicon-menu-hamburger
+                            span 分类列表
+                a.collapseItem.nav-link
+                    span.glyphicon.glyphicon-star(aria-hidden="true")
+                    span demo管理
+                ul.el-menu
+                    li
+                        a.nav-link
+                            span.glyphicon.glyphicon-facetime-video
+                            span 添加demo
+                    li
+                        a.nav-link
+                            span.glyphicon.glyphicon-tasks
+                            span demo列表
+                a.collapseItem.nav-link
+                    span.glyphicon.glyphicon-comment(aria-hidden="true")
+                    span 评论管理
+                ul.el-menu
+                    li
+                        a.nav-link
+                            span.glyphicon.glyphicon-th
+                            span 评论列表
+            .main-content
+                block content
+    script(src="/js/admin.js")
+
+

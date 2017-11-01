@@ -1,0 +1,85 @@
+/*article list*/
+.main-box {
+    width: 100%;
+    padding: 1rem 10%;
+}
+
+.article-panel {
+    height: 10rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.article-panel .main-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main-box .content1 {
+    width: 80%;
+}
+
+.main-box .content2 {
+    width: 20%;
+}
+
+.article-panel .title {
+    height: 20%;
+    line-height: 4vh;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.article-panel .describe {
+    height: 45%;
+}
+
+.article-panel .div {
+    height: 2%;
+    border-bottom: 1px solid rgba(0,0,0,.12);;
+}
+
+.article-panel .time-box {
+    margin: 0.8rem 0.8rem;
+    border: 2px solid #bbb;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color:#656565;
+}
+
+.time-box .year{
+    font-size: 1rem;
+}
+
+.time-box .month{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.time-box .day{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+.article-panel .num-box {
+    height: 28%;
+    line-height: 5vh;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #656565;
+}
+
+.num-box .num-item {
+     align-items: center;
+}
+
+.num-box span {
+    margin-right: 0.8rem;
+}

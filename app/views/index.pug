@@ -1,0 +1,28 @@
+extends ./layout
+block content
+    h3 鲤.池
+    .main-box
+        each item in articles
+            .panel.panel-default.article-panel
+                .main-content
+                    .content1
+                        .title #{item.title}
+                        .describe
+                    .content2
+                        .time-box
+                            span.year 2017
+                            span.month 10
+                            span.day  31
+                .div
+                .num-box
+                    .num-item
+                        span.glyphicon.glyphicon-eye-open
+                        span #{item.watchNumber}
+                    .num-item
+                        span.glyphicon.glyphicon-edit
+                        span #{item.commentNumber}
+                    .num-item
+                        span.glyphicon.glyphicon-thumbs-up
+                        span #{item.likeNumber}
+
+

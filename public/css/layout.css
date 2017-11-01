@@ -1,0 +1,47 @@
+html,body{
+    height:100%;
+    width: 100%;
+    font-size: 1vw;
+    background-color: #ffffff;
+    font-family: 'Microsoft YaHei',sans-serif;
+}
+a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    color: rgba(0,0,0,.12);
+    text-decoration: none;
+}
+nav.head{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    background-color:#ffffff;
+}
+.head .content {
+    width: 80%;
+    margin: auto;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+.nav-link {
+    height: 100%;
+    display: inline-block;
+    padding:10px 20px;
+    font-size: 16px;
+}
+.nav-link span {
+    margin-right: 10px;
+}
+.head .content .right{
+    float:right;
+}
+main {
+    margin-top: 50px;
+    width: 100%;
+    padding: 10px 10%;
+}
