@@ -5,8 +5,18 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 var ArticleSchema = Schema({
-     title:String,
-     content:String,
+     title:{
+         type:String,
+         default:''
+     },
+     content:{
+         type:String,
+         default:''
+     },
+     abstract:{
+         type:String,
+         default:''
+     },
      category:{
          type:ObjectId,
          ref:'Category'

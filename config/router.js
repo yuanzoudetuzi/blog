@@ -10,6 +10,10 @@ var Category = require('../app/controllers/category');
 module.exports = function (app) {
 //index
     app.get('/',Index.index);
+    app.get('/article/all',Index.getALL);
+    app.get('/article/category',Index.getPart);
+    app.get('/article/detail',Index.detail);
+    app.get('/article/content',Index.content);
 
 //user
     app.get('/signin',User.showSignin);

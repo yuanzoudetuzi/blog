@@ -24,7 +24,7 @@ block content
                         each item in categories
                             tr(class="item-id-" + item._id)
                                 td #{item.name}
-                                td #{moment(item.meta.creatAt).format("MM/DD/YYYY")}
+                                td #{moment(item.meta.creatAt).format('YYYY-MM-D')}
                                 td: a(target="_bank",href="/admin/category" + item._id) 查看
                                 td
                                     button.btn.btn-danger.del-category(type="button",data-id=item._id) 删除

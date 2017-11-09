@@ -1,0 +1,144 @@
+/*article list*/
+
+.main-box {
+    width: 100%;
+    padding: 1rem 10%;
+}
+.category-box {
+    margin: 1rem 0 2rem;
+}
+.category-link {
+    border-radius: 1px;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    padding: 2px 8px;
+    margin-right: 1rem;
+    padding-bottom: 5px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+
+.category-link:hover{
+    color: #337ab7;
+    border-bottom: 2px solid #337ab7;
+    font-weight: 600;
+}
+
+.article-panel {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-panel:hover {
+    background-color: #f1f1f1;
+}
+
+.article-panel .main-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.main-box .content1 {
+    width: 85%;
+   /* height: 80%;*/
+    padding: 0.8rem 0.8rem;
+}
+
+.content1 .category {
+     width: auto;
+     margin: 0 10px;
+     text-align: center;
+     border-radius: 2px;
+     padding: 2px .8rem;
+ }
+
+.content1 .title {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    transition: margin-left ease-in 0.5s;
+    cursor: pointer;
+}
+
+.content1 .title:hover{
+    margin-left:2rem
+}
+
+.content1 .describe {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.main-box .content2 {
+    width: 15%;
+    padding: 0 0;
+}
+
+
+.article-panel .div {
+    border-bottom: 1px solid rgba(0,0,0,.12);;
+}
+
+.article-panel .time-box {
+    width: 70%;
+    margin: 0 auto;
+    border: 2px solid #bbb;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color:#656565;
+    white-space: nowrap;
+}
+
+
+.time-box .year{
+    font-size: 1rem;
+}
+
+.time-box .month{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.time-box .day{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+.article-panel .num-box {
+    line-height: 5vh;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #656565;
+}
+
+.num-box .num-item {
+     align-items: center;
+}
+
+.num-box span {
+    margin-right: 0.8rem;
+}
+
+@media screen and (max-width:480px) {
+    .main-box .content1 {
+        width: 100%;
+    }
+    .main-box .content2 {
+        display: none;
+    }
+    .article-panel .num-box {
+        width: 100%;
+    }
+}

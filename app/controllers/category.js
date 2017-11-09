@@ -14,12 +14,14 @@ exports.new = function (req,res) {
     console.log(req.body.category);
     var _category = req.body.category;
     var category = new Category(_category);
-    category.articles = [];
     category.save(function (err,category) {
         if(err) {
             console.log(err);
             return res.redirect('/admin/category/write')
         }
+        // console.log('category articles 0');
+        // console.log(category);
+        // console.log(category.articles);
         return res.redirect('/admin/category/list');
     });
 

@@ -1,0 +1,93 @@
+html,body{
+    height:100%;
+    width: 100%;
+    font-size: 1vw;
+    background-color: #ffffff;
+    font-family: 'Microsoft YaHei',sans-serif;
+}
+a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    color: rgba(0,0,0,.12);
+    text-decoration: none;
+}
+
+main {
+    width: 60%;
+    margin: 0 auto;
+}
+@media screen and (max-width: 480px){
+    main {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+.back-link {
+    display: block;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+.back-link:hover {
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
+}
+
+.back-link span {
+    margin-right: 10px;
+}
+
+.num-time {
+    display: flex;
+    flex-direction: row;
+    color: #656565;
+    border-bottom: 1px solid #656565;
+    font-size: 1.2rem;
+}
+
+.num-box {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+.num-box .num-item {
+    margin-right:3rem ;
+}
+
+a.num-item {
+
+}
+
+.time-box {
+    width:30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.time-box span,.num-box span {
+    margin-right: 0.8rem;
+}
+
+
+@media screen and (max-width: 800px){
+    .num-box{
+        width: 100%;
+    }
+    .time-box{
+        display: none;
+    }
+    .num-box .num-item {
+        margin-right:0.8rem ;
+    }
+}
+
+#article {
+    margin: 2rem 0;
+}

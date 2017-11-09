@@ -20,6 +20,7 @@ nav.head{
     left:0;
     width: 100%;
     background-color:#ffffff;
+    z-index: 999;
 }
 .head .content {
     width: 80%;
@@ -28,12 +29,16 @@ nav.head{
     line-height: 50px;
     border-bottom: 1px solid rgba(0,0,0,.12);
 }
+
+
 .nav-link {
     height: 100%;
     display: inline-block;
     padding:10px 20px;
     font-size: 16px;
 }
+
+
 .nav-link span {
     margin-right: 10px;
 }
@@ -44,4 +49,13 @@ main {
     margin-top: 50px;
     width: 100%;
     padding: 10px 10%;
+}
+
+@media screen and (max-width: 480px){
+    .nav-link {
+        padding:10px 0;
+    }
+    .head .content .right{
+        display: none;
+    }
 }

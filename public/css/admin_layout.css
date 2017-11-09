@@ -2,7 +2,8 @@ html,body {
     height: 100%;
     width: 100%;
     font-size: 1.5vw;
-    overflow: hidden;
+    background-color: #f0f3f4;
+   /* overflow: hidden;*/
 }
 a {
     color:white;
@@ -23,6 +24,7 @@ nav.head {
     padding: 0 5%;
     height: 70px;
     line-height: 70px;
+    z-index: 10000;
 }
 nav .title {
     color:white;
@@ -46,7 +48,7 @@ nav .link {
 main {
     margin-top:70px;
     width: 100%;
-    height: calc(100% - 70px);
+   /* height: calc(100% - 70px);*/
 }
 
 nav.left {

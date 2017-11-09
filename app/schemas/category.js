@@ -8,11 +8,16 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
 var CategorySchema = new Schema({
-    name:String,
+    name:{
+        type:String,
+        default:''
+    },
     articles:[{
         type:ObjectId,
-        ref:'Article'
-    }],
+        ref:'Article',
+        default:[]
+      }
+    ],
     meta:{
         creatAt:{
             type:Date,
@@ -24,6 +29,19 @@ var CategorySchema = new Schema({
         }
     }
 });
+
+CategorySchema.methods = {
+    removeArticle:function (articleID,cb) {
+        var len =  this.articles.length;
+        var articles = this.articles;
+        for(var i = 0; i < len;i++) {
+            if(articles[i] === articleID) {
+                this.articles.splice(i,1);
+                break;
+            }
+        }
+    }
+};
 
 CategorySchema.pre('save',function (next) {
     if(this.isNew) {

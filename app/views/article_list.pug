@@ -1,0 +1,39 @@
+extends ./layout
+block content
+    //h3 鲤.池
+    .main-box
+        .category-box
+            a(class="category-link item-all",href="/article/all")
+                span 全部
+            each item in categories
+                a(class='category-link item-id-'+item._id,href="/article/category?id="+item._id)
+                    span #{item.name}
+        each item in articles
+            .panel.panel-default.article-panel
+                .main-content
+                    .content1
+                        a.title(href="/article/detail?id=" + item._id) #{item.title}
+                        .row
+                            .col-md-1.col-xs-4
+                                .label.label-primary #{item.category.name}
+                            .col-md-6.col-xs-8
+                                small Update Time: #{moment(item.meta.updateAt).format('YYYY-MM-D hh:mm:ss')}
+                        .describe #{item.abstract}
+                    .content2
+                        .time-box
+                            span.year 2017
+                            span.month 10
+                            span.day  31
+                .div
+                .num-box
+                    .num-item
+                        span.glyphicon.glyphicon-eye-open
+                        span #{item.watchNumber} 浏览
+                    .num-item
+                        span.glyphicon.glyphicon-edit
+                        span #{item.commentNumber} 评论
+                    .num-item
+                        span.glyphicon.glyphicon-thumbs-up
+                        span #{item.likeNumber} 喜欢
+    script(src="/libs/jquery/dist/jquery.min.js")
+    script(src="/js/article_list.js")

@@ -1,7 +1,7 @@
 /*article write*/
 .editor-box {
     width: 100%;
-    padding:  1rem 10%;
+    padding:  5px 10%;
 }
 
 .editor-box h5 {
@@ -13,18 +13,25 @@
     padding: 5px 0 10px 0;
 }
 
-#status {
-    margin-left: 50%;
-    display: none;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 2px 2px;
+
+
+.select-box {
+    padding: 0 0;
+    margin-right: 0;
+    margin-left: 0;
 }
+
+
 #inputTitle {
-   width: 100%;
+    width: 100%;
     border-radius: 2px;
 }
 
+#editor-des {
+    width: 100%;
+    border-radius: 2px;
+    height: 10vh;
+}
 .editor-box .div {
     height: 1rem;
     width: 100%;
@@ -45,10 +52,22 @@
 }
 
 .editor-control {
-    width: 100%;
-    padding-left: 80%;
+    margin:0 10%;
 }
 
+.editor-control button {
+    float: right;
+    margin-left: 20px;
+}
+
+
+#status {
+    display: none;
+    float: left;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 2px 2px;
+}
 /*article list*/
 .article-list {
     width: 100%;

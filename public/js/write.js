@@ -11,6 +11,7 @@ $(document).ready(function () {
     editor.create();
 
     console.log(window.location.search);
+    /*判断是写文章还是编辑*/
     var url = window.location.search;
     if (url.indexOf("?") != -1) {
         var str = url.substr(1);
@@ -35,7 +36,11 @@ function getArticle(editor,id) {
         dataType:'json',
         success:function (data) {
             if(data) {
+                console.log('receive data:');
+              /*  console.log(data);*/
                 $('#inputTitle').val(data.title);
+                $('#editor-des').val(data.abstract);
+                $('#select-box').val(data.category);
                 editor.txt.html(data.content);
             }
         }
@@ -44,12 +49,22 @@ function getArticle(editor,id) {
 
 function newPassage() {
         console.log(editor.txt.html());
+        var title = $('#inputTitle').val();
+        var category = $('#select-box').val();
+        var addCategory = $('#addCategory').val();
+        var abstract = $('#editor-des').val();
         var content = editor.txt.html();
-        title = $('#inputTitle').val();
+
         var data = {
             title: title,
+            abstract:abstract,
             content:content
         };
+        if(addCategory) {
+            data['addCategory'] = addCategory;
+        } else {
+            data['category'] = category;
+        }
         var dataSend = JSON.stringify(data);
         console.log(dataSend);
         $.ajax({
@@ -72,14 +87,23 @@ function newPassage() {
 function updatePassage() {
     console.log('updatePassage');
     console.log('id = ' + id);
+    var title = $('#inputTitle').val();
+    var category = $('#select-box').val();
+    var addCategory = $('#addCategory').val();
+    var abstract = $('#editor-des').val();
     var content = editor.txt.html();
-    title = $('#inputTitle').val();
+
     var data = {
         id:id,
         title: title,
+        abstract:abstract,
         content:content
     };
-
+    if(addCategory) {
+        data['addCategory'] = addCategory;
+    } else {
+        data['category'] = category;
+    }
     var dataSend = JSON.stringify(data);
     console.log(dataSend);
     $.ajax({

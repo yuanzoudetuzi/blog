@@ -4,13 +4,25 @@ block content
         .editor-box
             .editor-title
                 h5 文章标题
-                    span#status
-                input#inputTitle(required='required')
+            .row.select-box
+                .col-md-2.select-box
+                    select.form-control#select-box
+                        each item in categories
+                            option(value=item._id) #{item.name}
+                .col-md-10.select-box
+                    input#inputTitle(required='required')
+            div.div
+                h5 添加分类
+            input#addCategory.form-control(type="text")
+            div.div
+                h5 文章简介
+            textarea#editor-des
             #editor-tool.editor-tool
             div.div
                 h5 文章内容
-            #editor-content.editor-content()
+            #editor-content.editor-content
         .editor-control
+            span#status
             button#savePassage.btn.btn-primary 保存
             span &nbsp;&nbsp;&nbsp;&nbsp;
             button#clearPassage.btn.btn-danger 清空
@@ -36,12 +48,12 @@ block content
                         each item in articles
                             tr(class="item-id-" + item._id)
                                 td #{item.title}
-                                td #{moment(item.meta.creatAt).format('MM/DD//YYYY')}
-                                td #{moment(item.meta.updateAt).format('MM/DD//YYYY')}
+                                td #{moment(item.meta.creatAt).format('YYYY-MM-D')}
+                                td #{moment(item.meta.updateAt).format('YYYY-MM-D')}
                                 td #{item.watchNumber}
                                 td #{item.likeNumber}
                                 td #{item.commentNumber}
-                                td: a(target="_bank",href="/admin/article/edit?id="+item._id) 查看
+                                td: a(target="_bank",href="/article/detail?id="+item._id) 查看
                                 td: a(target="_bank",href="/admin/article/edit?id="+item._id) 编辑
                                 td
                                     button.btn.btn-danger.del-article(type="button",data-id=item._id) 删除

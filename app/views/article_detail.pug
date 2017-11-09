@@ -1,0 +1,37 @@
+doctype
+html
+    head
+        meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
+        title=title
+        link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
+        link(rel="stylesheet",href="/css/article_detail.css")
+    body
+        main
+            a.back-link(href="/article/all")
+              span.glyphicon.glyphicon-arrow-left
+              span 文章列表
+            .text-center
+                h3 #{article.title}
+            .num-time
+                .num-box
+                    a.num-item(href="/article/category/?id="+article.category._id)
+                        span.glyphicon.glyphicon-home
+                        small #{article.category.name}
+                    .num-item
+                        span.glyphicon.glyphicon-eye-open
+                        small #{article.watchNumber} 浏览
+                    .num-item
+                        span.glyphicon.glyphicon-edit
+                        small #{article.commentNumber} 评论
+                    .num-item
+                        span.glyphicon.glyphicon-thumbs-up
+                        small #{article.likeNumber} 喜欢
+                .time-box
+                    span.glyphicon.glyphicon-time
+                    small  #{moment(article.meta.updateAt).format("YYYY-MM-D")}
+            article#article
+
+        script(src="/libs/jquery/dist/jquery.min.js")
+        script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
+        script(src="/js/article_detail.js")
