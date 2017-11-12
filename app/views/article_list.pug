@@ -10,7 +10,7 @@ block content
                 a.category-link(href="/article/all")
                     span 全部
             each item in categories
-                if(search===item.name)
+                if(search===item._id)
                     a.category-link.category-active(href="/article/category?id="+item._id)
                         span #{item.name}
                 else
@@ -43,3 +43,16 @@ block content
                     .num-item
                         span.glyphicon.glyphicon-thumbs-up
                         span #{item.likeNumber} 喜欢
+        .text-center
+            ul.pagination(style="margin-top:10px")
+                -for(var i = 0; i < totalPage; i++)
+                    if(currentPage == (i + 1))
+                        li.active
+                            span #{currentPage}
+                    else
+                        if(search==="all")
+                            li
+                                a(href="/article/all?p=" + i) #{i + 1}
+                        else
+                            li
+                                a(href="/article/category?id=" + search + "&p="+i) #{i + 1}

@@ -4,7 +4,7 @@
  */
 var Article = require('../models/article');
 var Category = require('../models/category');
-
+var count = 2;  //每页返回的文章数目
 exports.index = function (req, res) {
     Category.fetch(function (err, categories) {
         Article
@@ -27,7 +27,10 @@ exports.index = function (req, res) {
 };
 
 exports.getALL = function (req, res) {
+    console.log('count = ' + count);
     var search = 'all';
+    var page = parseInt(req.query.p,10) || 0;
+    console.log('page = ' + page);
     Category.fetch(function (err, categories) {
         Article
             .find()
@@ -38,11 +41,15 @@ exports.getALL = function (req, res) {
                     console.log(err);
                     articles = [];
                 }
+                var results = articles.slice(page*count,count+page*count);
+                console.log('toltal page = ' +Math.ceil(articles.length/count) );
                 res.render('article_list', {
                     title: '鲤.池',
                     categories: categories,
                     search:search,
-                    articles: articles
+                    articles: results,
+                    totalPage:Math.ceil(articles.length/count),
+                    currentPage:page+1
                 });
             });
     });
@@ -50,6 +57,7 @@ exports.getALL = function (req, res) {
 
 exports.getPart = function (req, res) {
     var categoryId = req.query.id;
+    var page = parseInt(req.query.p,10) || 0;
     console.log('id = ' + categoryId);
     Category
         .findOne({_id: categoryId})
@@ -63,14 +71,18 @@ exports.getPart = function (req, res) {
             console.log('category articles');
             console.log(category);
             var articles = category.articles;
-            var search = category.name;
+            var results = articles.slice(page*count,count+page*count);
+            console.log('toltal page = ' +Math.ceil(articles.length/count) );
+            var search = category._id;
             Category.fetch(function (err,categories) {
                 if(err) return res.redirect("/");
                 return res.render('article_list', {
                     title: '鲤.池',
                     categories: categories,
                     search:search,
-                    articles: articles
+                    articles: results,
+                    totalPage:Math.ceil(articles.length/count),
+                    currentPage:page+1
                 });
             });
 
