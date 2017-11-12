@@ -57,6 +57,13 @@ block content
                                 td: a(target="_bank",href="/admin/article/edit?id="+item._id) 编辑
                                 td
                                     button.btn.btn-danger.del-article(type="button",data-id=item._id) 删除
-
+        ul.pagination(style="margin-bottom:100px")
+            -for(var i = 0; i < totalPage; i++)
+            if(currentPage == (i + 1))
+                li.active
+                    span #{currentPage}
+            else
+                li
+                    a(href="/results/?p=" + i + "&" + query) #{i + 1}
 
 

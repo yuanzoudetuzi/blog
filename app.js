@@ -24,7 +24,6 @@ app.use(session({
         secret: 'recommand 128 bytes random string', // 建议使用 128 个字符的随机字符串
         resave: false,
         saveUninitialized: true,
-        cookie: {maxAge: 60 * 1000},
         store: new mongoStore({
             /*指定session存储方式*/
             url: dbUrl,

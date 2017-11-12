@@ -27,6 +27,7 @@ exports.index = function (req, res) {
 };
 
 exports.getALL = function (req, res) {
+    var search = 'all';
     Category.fetch(function (err, categories) {
         Article
             .find()
@@ -40,6 +41,7 @@ exports.getALL = function (req, res) {
                 res.render('article_list', {
                     title: '鲤.池',
                     categories: categories,
+                    search:search,
                     articles: articles
                 });
             });
@@ -61,11 +63,13 @@ exports.getPart = function (req, res) {
             console.log('category articles');
             console.log(category);
             var articles = category.articles;
+            var search = category.name;
             Category.fetch(function (err,categories) {
                 if(err) return res.redirect("/");
                 return res.render('article_list', {
                     title: '鲤.池',
                     categories: categories,
+                    search:search,
                     articles: articles
                 });
             });

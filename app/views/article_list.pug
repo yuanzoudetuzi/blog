@@ -3,11 +3,19 @@ block content
     //h3 鲤.池
     .main-box
         .category-box
-            a(class="category-link item-all",href="/article/all")
-                span 全部
+            if(search==='all')
+                a.category-link.category-active(href="/article/all")
+                    span 全部
+            else
+                a.category-link(href="/article/all")
+                    span 全部
             each item in categories
-                a(class='category-link item-id-'+item._id,href="/article/category?id="+item._id)
-                    span #{item.name}
+                if(search===item.name)
+                    a.category-link.category-active(href="/article/category?id="+item._id)
+                        span #{item.name}
+                else
+                    a.category-link(href="/article/category?id=" + item._id)
+                        span #{item.name}
         each item in articles
             .panel.panel-default.article-panel
                 .main-content
@@ -35,5 +43,3 @@ block content
                     .num-item
                         span.glyphicon.glyphicon-thumbs-up
                         span #{item.likeNumber} 喜欢
-    script(src="/libs/jquery/dist/jquery.min.js")
-    script(src="/js/article_list.js")
