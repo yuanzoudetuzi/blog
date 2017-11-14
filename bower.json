@@ -1,0 +1,19 @@
+{
+  "name": "blog",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "wangEditor": "^3.0.11",
+    "bootstrap": "^3.3.7"
+  }
+}
