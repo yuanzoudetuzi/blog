@@ -14,6 +14,7 @@ module.exports = function (app) {
     app.get('/article/category',Index.getPart);
     app.get('/article/detail',Index.detail);
     app.get('/article/content',Index.content);
+    app.get('/article/like',Index.like);
 
 //user
     app.get('/signin',User.showSignin);

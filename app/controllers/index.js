@@ -92,6 +92,11 @@ exports.getPart = function (req, res) {
 exports.detail = function (req,res) {
     var id = req.query.id;
     Article
+        .update({_id:id},{$inc:{watchNumber:1}},function (err) {
+            if(err) console.log(err);
+
+        });
+    Article
         .findOne({_id:id})
         .populate('category','name')
         .exec(function (err,article) {
@@ -116,5 +121,19 @@ exports.content = function (req,res) {
 
 };
 
+
+exports.like =function (req,res) {
+    var id = req.query.id;
+    Article.update({_id:id},{$inc:{likeNumber:1}},function (err) {
+        if(err) {
+            console.log(err);
+            return res.json({"status":0});
+        }
+        else {
+            return res.json({"status":1});
+        }
+    });
+
+};
 
 

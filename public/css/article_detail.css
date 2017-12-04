@@ -18,6 +18,7 @@ a:hover {
 main {
     width: 60%;
     margin: 0 auto;
+    min-height: 70%;
 }
 @media screen and (max-width: 480px){
     main {
@@ -90,4 +91,22 @@ a.num-item {
 
 #article {
     margin: 2rem 0;
+}
+
+.like {
+    margin: 10px auto;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #FF6A6A;
+    color: white;
+    cursor: pointer;
+}
+
+.like:hover {
+    opacity: 0.8;
+}
+
+.like span {
+    margin-right: 10px;
 }

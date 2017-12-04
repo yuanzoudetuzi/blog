@@ -14,10 +14,24 @@ $(document).ready(function () {
                 dataType:'json',
                 success:function (data) {
                     if(data) {
-                        console.log(data);
                         $('#article').html(data.content);
                     }
                 }
+            });
+            $('.like').click(function () {
+                $.ajax({
+                    url:'/article/like/?id='+id,
+                    type:'GET',
+                    dataType:'json',
+                    success:function (data) {
+                        if(data.status==1) {
+                            console.log(data);
+                            var num =  $("#like_num").html();
+                            console.log(num);
+                            $("#like_num").html(++num);
+                        }
+                    }
+                });
             });
         }
 

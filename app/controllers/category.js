@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/10/31.
  */
 var Category = require('../models/category');
+var Article = require('../models/article');
 exports.write = function (req,res) {
     res.render('admin_category',{
         title:'添加分类',
@@ -51,7 +52,13 @@ exports.del = function (req,res) {
                 console.log('Delete movie is failed, ERR is ' + err);
                 res.redirect('/admin/category/list');
             } else {
-                res.json({success:1});
+                Article.update({category:id},{category:''}, {multi: true}, function (err,articles) {
+                    if(err) return res.redirect('/admin/category/list');
+                    console.log('after delete category ,articles =');
+                    console.log(articles);
+                    return  res.json({success:1});
+                });
+
             }
         })
     }

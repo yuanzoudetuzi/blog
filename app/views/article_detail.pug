@@ -26,12 +26,17 @@ html
                         small #{article.commentNumber} 评论
                     .num-item
                         span.glyphicon.glyphicon-thumbs-up
-                        small #{article.likeNumber} 喜欢
+                        small#like_num #{article.likeNumber}
+                        small &nbsp;&nbsp;喜欢
                 .time-box
                     span.glyphicon.glyphicon-time
                     small  #{moment(article.meta.updateAt).format("YYYY-MM-D")}
             article#article
-
+        footer
+           .text-center
+               .like
+                   span.glyphicon.glyphicon-heart
+                   strong 喜欢
         script(src="/libs/jquery/dist/jquery.min.js")
         script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
         script(src="/js/article_detail.js")
