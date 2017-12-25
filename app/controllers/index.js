@@ -5,25 +5,30 @@
 var Article = require('../models/article');
 var Category = require('../models/category');
 var count = 2;  //每页返回的文章数目
+// exports.index = function (req, res) {
+//     Category.fetch(function (err, categories) {
+//         Article
+//             .find()
+//             .populate('category', 'name')
+//             .sort({'meta.updateAt': -1})
+//             .exec(function (err, articles) {
+//                 if (err) {
+//                     console.log(err);
+//                     articles = [];
+//                 }
+//                 res.render('article_list', {
+//                     title: '鲤.池',
+//                     categories: categories,
+//                     articles: articles
+//                 });
+//             });
+//     });
+//
+// };
 exports.index = function (req, res) {
-    Category.fetch(function (err, categories) {
-        Article
-            .find()
-            .populate('category', 'name')
-            .sort({'meta.updateAt': -1})
-            .exec(function (err, articles) {
-                if (err) {
-                    console.log(err);
-                    articles = [];
-                }
-                res.render('article_list', {
-                    title: '鲤.池',
-                    categories: categories,
-                    articles: articles
-                });
-            });
+    res.render('index', {
+        title: '鲤.池'
     });
-
 };
 
 exports.getALL = function (req, res) {

@@ -1,9 +1,14 @@
+* {
+    margin:0;
+    padding:0;
+}
 html,body{
     height:100%;
     width: 100%;
     font-size: 1vw;
     background-color: #ffffff;
     font-family: 'Microsoft YaHei',sans-serif;
+    overflow-x: hidden;
 }
 a {
     color: black;
@@ -47,8 +52,10 @@ nav.head{
 }
 main {
     margin-top: 50px;
-    width: 100%;
-    padding: 10px 10%;
+    margin-left: 10%;
+    width: 80%;
+    /*padding: 10px 10%;*/
+    position: relative;
 }
 
 @media screen and (max-width: 480px){
@@ -57,5 +64,57 @@ main {
     }
     .head .content .right{
         display: none;
+    }
+}
+
+
+#canvas {
+    background: white;
+    display: block;  //canvas 有自己的垂直居中样式，需要取消掉
+    /*width:500px;*/
+    /*height: 500px;*/  不能在css中设置宽高，否则在js中绘制的图形会被等比缩放，可以直接在canvas标签中直接设置width和height.
+}
+#picture {
+    position: absolute;
+    top:60%;
+    left:80%;
+    display: block;
+}
+#text {
+    position: absolute;
+    top:40%;
+    left:0;
+    width: 100%;
+    /*transform:translateX(-250px);*/
+    /*width: 500px;*/
+    color: rgba(0,0,0,0);
+    text-shadow: 5px 5px 5px rgba(0,0,0,0);
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    animation:text 5s infinite;
+    -moz-animation:text 8s ease-in 1s infinite; /* Firefox */
+    -webkit-animation:text 8s linear 1s infinite; /* Safari and Chrome */
+    -o-animation:text 8s ease-in 1s infinite; /* Opera */
+}
+@keyframes text {
+    0%{
+        font-size: 2rem;
+        color: rgba(0,0,0,0);
+        text-shadow: 5px 5px 5px rgba(0,0,0,0);
+    }
+    50% {                                    /*实现每一次动画之间的停留时间*/
+        color: rgba(0,0,0,0);
+        text-shadow: 5px 5px 5px rgba(0,0,0,0);
+    }
+    75% {
+        font-size: 3rem;
+        color: rgba(0,0,0,0.5);
+        text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    }
+    100% {
+        font-size: 4rem;
+        color: rgba(0,0,0,0);
+        text-shadow: 5px 5px 5px rgba(0,0,0,0);
     }
 }
