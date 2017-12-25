@@ -1,6 +1,6 @@
 
-import {Umbrella,Drop}from "./rain.js";
-
+import {Umbrella,Drop} from "./rain.js";
+import {Sun,SunnyDoll} from "./sunshine.js"
 $("html").attr("overflow-y","hidden");
 let canvas = document.getElementById("canvas");
 let pCanvas = document.getElementById("picture");
@@ -19,7 +19,19 @@ window.onresize = function () {
     pw = pCanvas.width = Math.floor(w*2/10);
     ph = pCanvas.height = Math.floor(h*4/10);
 };
-
+$.ajax({
+    url:"https://api.seniverse.com/v3/weather/now.json?key=dzbdjfztpxc77zrq&location=beijing&language=zh-Hans&unit=c",
+    type:"GET",
+    dataType:"json",
+    jsonp:"showWeather",
+    success:function (data) {
+       console.log('weather data is:');
+       console.log(data);
+    },
+    err:function (err) {
+       console.log("Get weather is error,because " + err);
+    }
+});
 /*创建雨滴数组*/
 let drops = [];  /*雨滴数组*/
 let num = 1000;

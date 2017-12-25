@@ -6,8 +6,8 @@ class Umbrella {
          this.x = random(0,0.05*w);  /*图片在画布上的起始坐标x*/
          this.y = random(0,0.05*h);  /*图片在画布上的起始坐标y*/
          this.context = context;
-         this.contextWidth = w;   /*画布宽度*/
-         this.contextHeight = h;  /*画布高度*/
+         this.w = w;   /*画布宽度*/
+         this.h = h;  /*画布高度*/
      }
     draw(img) {
         let imgWidth = img.width;
@@ -15,9 +15,9 @@ class Umbrella {
         console.log(imgWidth + " " + imgHeight);
         let ratio = 1;
         if(imgHeight > imgWidth) {   /*竖图*/
-            ratio = imgHeight/this.contextHeight;
+            ratio = imgHeight/this.h;
         } else {
-            ratio = imgWidth/this.contextWidth;
+            ratio = imgWidth/this.w;
         }
         let drawWidth = imgWidth/ratio;
         let drawHeight = imgHeight/ratio;
