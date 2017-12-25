@@ -19,11 +19,13 @@ window.onresize = function () {
     pw = pCanvas.width = Math.floor(w*2/10);
     ph = pCanvas.height = Math.floor(h*4/10);
 };
+let utc = new Date.now();
+console.log("utc"+utc);
 $.ajax({
     url:"https://api.seniverse.com/v3/weather/now.json?key=dzbdjfztpxc77zrq&location=beijing&language=zh-Hans&unit=c",
+    // ulr:"https://api.seniverse.com/v3/weather/now.json?location=beijing&ts=1443079775&ttl=3600&uid=U6090EE1AD&sig=[your_signature]&callback=showWeather",
     type:"GET",
     dataType:"json",
-    jsonp:"showWeather",
     success:function (data) {
        console.log('weather data is:');
        console.log(data);
