@@ -1,5 +1,7 @@
 import random from "./random.js";
 
+let textArray = ["It\'s a sunny day~","Have a good mood","A nice day is coming","Open your window to see the beautiful world",
+    "Sunshine is good of you","The sun warm, years static good."];
 class Sun {
     constructor(context,w,h) {
         this.w = w;   /*画布宽度*/
@@ -9,7 +11,6 @@ class Sun {
     draw (img) {
         let imgWidth = img.width;
         let imgHeight = img.height;
-        console.log(imgWidth + " " + imgHeight);
         let ratio = 1;
         if(imgHeight > imgWidth) {   /*竖图*/
             ratio = imgHeight/this.h;
@@ -18,11 +19,10 @@ class Sun {
         }
         let drawWidth = imgWidth/ratio;
         let drawHeight = imgHeight/ratio;
-        console.log("sun drawWidth = " + drawWidth);
         this.context.drawImage(img,0,0,drawWidth,drawHeight);
     }
     rotate() {
-        this.context.clearRect(0,0,this.w,this,h);
+        this.context.clearRect(0,0,this.w,this.h);
         this.context.translate(this.w/2,this.h/2);
         this.context.rotate(Math.PI/18);
         this.context.translate(-this.w/2,-this.h/2);
@@ -33,8 +33,8 @@ class Sun {
 class SunnyDoll {
     constructor(context,w,h) {
         this.x = random(0.2*w,0.8*w);
-        this.y = random(0.3*h,0.3*h);
-        this.vx = random(0.05*w,0.06*w);
+        this.y = random(0.6*h,0.6*h);
+        this.vx = random(10,30);
         this.pictureHeight = 0.15*w;
         this.pictureWidth = 0.15*w;
         this.context = context;
@@ -44,7 +44,6 @@ class SunnyDoll {
     draw(img) {
         let imgWidth = img.width;
         let imgHeight = img.height;
-        console.log(imgWidth + " " + imgHeight);
         let ratio = 1;
         if(imgHeight > imgWidth) {   /*竖图*/
             ratio = imgHeight/this.pictureHeight;
@@ -53,7 +52,6 @@ class SunnyDoll {
         }
         let drawWidth = imgWidth/ratio;
         let drawHeight = imgHeight/ratio;
-        console.log("sunny doll drawWidth = " + drawWidth);
         this.context.drawImage(img,this.x,this.y,drawWidth,drawHeight);
         this.context.fillStyle = "#000";
         this.context.font = "30px sans-serif";

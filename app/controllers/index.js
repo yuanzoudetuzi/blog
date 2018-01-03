@@ -2,39 +2,53 @@
  * Created by Administrator on 2017/10/26.
  * 处理入口页面交互和用户登陆信息
  */
-var Article = require('../models/article');
-var Category = require('../models/category');
-var count = 2;  //每页返回的文章数目
-// exports.index = function (req, res) {
-//     Category.fetch(function (err, categories) {
-//         Article
-//             .find()
-//             .populate('category', 'name')
-//             .sort({'meta.updateAt': -1})
-//             .exec(function (err, articles) {
-//                 if (err) {
-//                     console.log(err);
-//                     articles = [];
-//                 }
-//                 res.render('article_list', {
-//                     title: '鲤.池',
-//                     categories: categories,
-//                     articles: articles
-//                 });
-//             });
-//     });
-//
-// };
+let Article = require('../models/article');
+let Category = require('../models/category');
+let Weather = require('./weather');
+const UID = "U6090EE1AD"; // 心知天气用户ID，请更换成您自己的用户ID
+const KEY = "dzbdjfztpxc77zrq"; // 心知天气用户key，请更换成您自己的 Key
+let weather = new Weather(UID, KEY);
+let count = 2;  //每页返回的文章数目
 exports.index = function (req, res) {
     res.render('index', {
         title: '鲤.池'
     });
 };
 
+exports.weather = function (req,res) {
+    let ip = req.query.ip; // 除拼音外，还可以使用 v3 id、汉语等形式
+    console.log("ip = " + ip);
+    weather.getCityNow(ip).then(function(data) {
+        let LOCATION = data["results"][0].name;
+        console.log("city = " + LOCATION);
+        weather.getWeatherNow(LOCATION).then(function(data) {
+            recData = data["results"][0];
+            let {name:location} = recData.location;
+            let {text:weather,temperature} = recData.now;
+            console.log("location = " + location + " weather = " + weather + "  temperature = " + temperature);
+            let sendData = {
+                location:location,
+                weather:weather,
+                temperature:temperature
+            };
+            return res.json({"data":sendData});
+        }).catch(function(err) {
+            console.log(err.error.status);
+            return res.json({"err":"get weather wrong"});
+
+        });
+    }).catch(function(err) {
+        console.log(err.error.status);
+        return res.json({"err":"get city wrong"});
+
+    });
+
+};
+
 exports.getALL = function (req, res) {
     console.log('count = ' + count);
-    var search = 'all';
-    var page = parseInt(req.query.p,10) || 0;
+    let search = 'all';
+    let page = parseInt(req.query.p,10) || 0;
     console.log('page = ' + page);
     Category.fetch(function (err, categories) {
         Article
@@ -46,7 +60,7 @@ exports.getALL = function (req, res) {
                     console.log(err);
                     articles = [];
                 }
-                var results = articles.slice(page*count,count+page*count);
+                let results = articles.slice(page*count,count+page*count);
                 console.log('toltal page = ' +Math.ceil(articles.length/count) );
                 res.render('article_list', {
                     title: '鲤.池',
@@ -61,8 +75,8 @@ exports.getALL = function (req, res) {
 };
 
 exports.getPart = function (req, res) {
-    var categoryId = req.query.id;
-    var page = parseInt(req.query.p,10) || 0;
+    let categoryId = req.query.id;
+    let page = parseInt(req.query.p,10) || 0;
     console.log('id = ' + categoryId);
     Category
         .findOne({_id: categoryId})
@@ -75,10 +89,10 @@ exports.getPart = function (req, res) {
             if (err) return res.redirect('/');
             console.log('category articles');
             console.log(category);
-            var articles = category.articles;
-            var results = articles.slice(page*count,count+page*count);
+            let articles = category.articles;
+            let results = articles.slice(page*count,count+page*count);
             console.log('toltal page = ' +Math.ceil(articles.length/count) );
-            var search = category._id;
+            let search = category._id;
             Category.fetch(function (err,categories) {
                 if(err) return res.redirect("/");
                 return res.render('article_list', {
@@ -95,7 +109,7 @@ exports.getPart = function (req, res) {
 };
 
 exports.detail = function (req,res) {
-    var id = req.query.id;
+    let id = req.query.id;
     Article
         .update({_id:id},{$inc:{watchNumber:1}},function (err) {
             if(err) console.log(err);
@@ -115,7 +129,7 @@ exports.detail = function (req,res) {
 };
 
 exports.content = function (req,res) {
-    var id = req.query.id;
+    let id = req.query.id;
     Article
         .findOne({_id:id})
         .populate('category','name')
@@ -128,7 +142,7 @@ exports.content = function (req,res) {
 
 
 exports.like =function (req,res) {
-    var id = req.query.id;
+    let id = req.query.id;
     Article.update({_id:id},{$inc:{likeNumber:1}},function (err) {
         if(err) {
             console.log(err);

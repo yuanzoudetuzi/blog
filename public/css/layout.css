@@ -54,10 +54,19 @@ main {
     margin-top: 50px;
     margin-left: 10%;
     width: 80%;
-    /*padding: 10px 10%;*/
     position: relative;
 }
-
+#canvas1 {
+    position: absolute;
+    top:0;
+    left:0;
+}
+#canvas2 {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:5;
+}
 @media screen and (max-width: 480px){
     .nav-link {
         padding:10px 0;
@@ -65,19 +74,43 @@ main {
     .head .content .right{
         display: none;
     }
+    aside {
+        display: none;
+    }
+    #canvas1,#canvas2 {
+        display: none;
+    }
+}
+aside {
+    position: fixed;
+    top:50px;
+    left:0;
+    width: 10%;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
+/*.aside-item {*/
+    /*margin-top: 2rem;*/
+    /*padding-bottom: .5rem;*/
+    /*border-bottom: 2px solid #407ab9;*/
+/*}*/
+#tp-weather-widget {
+    font-size: 1rem;
+    cursor: pointer;
+}
+#tp-weather-widget:hover {
+    font-size: 1.2rem;
+}
 
 #canvas {
     background: white;
-    display: block;  //canvas 有自己的垂直居中样式，需要取消掉
+    display: block;  /*canvas 有自己的垂直居中样式，需要取消掉 不能在css中设置宽高，否则在js中绘制的图形会被等比缩放，可以直接在canvas标签中直接设置width和height*/
     /*width:500px;*/
-    /*height: 500px;*/  不能在css中设置宽高，否则在js中绘制的图形会被等比缩放，可以直接在canvas标签中直接设置width和height.
+    /*height: 500px;*/  .
 }
 #picture {
     position: absolute;
-    top:60%;
-    left:80%;
     display: block;
 }
 #text {
@@ -85,6 +118,7 @@ main {
     top:40%;
     left:0;
     width: 100%;
+    display: none;
     /*transform:translateX(-250px);*/
     /*width: 500px;*/
     color: rgba(0,0,0,0);

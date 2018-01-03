@@ -68,7 +68,7 @@ function newPassage() {
         var dataSend = JSON.stringify(data);
         console.log(dataSend);
         $.ajax({
-            url:"http://localhost:8080/admin/article/new",
+            url:"/admin/article/new",
             type:'POST',
             data:dataSend,
             contentType : 'application/json',
@@ -107,7 +107,7 @@ function updatePassage() {
     var dataSend = JSON.stringify(data);
     console.log(dataSend);
     $.ajax({
-        url:"http://localhost:8080/admin/article/update",
+        url:"/admin/article/update",
         type:'POST',
         data:dataSend,
         contentType : 'application/json',

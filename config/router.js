@@ -2,20 +2,24 @@
  * Created by Administrator on 2017/10/27.
  * 路由处理
  */
-var Index = require('../app/controllers/index');
-var User =  require('../app/controllers/user');
-var Admin = require('../app/controllers/admin');
-var Article = require('../app/controllers/article');
-var Category = require('../app/controllers/category');
+let Index = require('../app/controllers/index');
+let Demo = require('../app/controllers/demo');
+let User =  require('../app/controllers/user');
+let Admin = require('../app/controllers/admin');
+let Article = require('../app/controllers/article');
+let Category = require('../app/controllers/category');
 module.exports = function (app) {
 //index
     app.get('/',Index.index);
+    app.get('/weather',Index.weather);
     app.get('/article/all',Index.getALL);
     app.get('/article/category',Index.getPart);
     app.get('/article/detail',Index.detail);
     app.get('/article/content',Index.content);
     app.get('/article/like',Index.like);
-
+//demo
+    app.get("/demo/all",Demo.all);
+    app.get("/demo/detail",Demo.detail);
 //user
     app.get('/signin',User.showSignin);
     app.get('/signup',User.showSignup);
