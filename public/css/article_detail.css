@@ -1,7 +1,7 @@
 html,body{
     height:100%;
     width: 100%;
-    font-size: 1vw;
+    font-size: 16px;
     background-color: #ffffff;
     font-family: 'Microsoft YaHei',sans-serif;
 }
@@ -30,7 +30,7 @@ aside {
 }
 @media screen and (max-width: 480px){
     main {
-        width: 95%;
+        width: 90%;
         margin: 0 auto;
     }
     aside {
@@ -68,7 +68,6 @@ aside {
     flex-direction: row;
     color: #656565;
     border-bottom: 1px solid #656565;
-    font-size: 1.2rem;
 }
 
 .num-box {
@@ -99,12 +98,16 @@ a.num-item {
 @media screen and (max-width: 800px){
     .num-box{
         width: 100%;
+        font-size: 0.3rem;
     }
     .time-box{
         display: none;
     }
     .num-box .num-item {
-        margin-right:0.8rem ;
+        margin-right:0.6rem ;
+    }
+    .num-box span {
+        margin-right: 0.2rem;
     }
 }
 

@@ -40,6 +40,7 @@
 }
 
 .article-panel .main-content{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -103,16 +104,16 @@
 
 
 .time-box .year{
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .time-box .month{
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: 500;
 }
 
 .time-box .day{
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: 700;
 }
 
@@ -124,6 +125,7 @@
     flex-direction: row;
     justify-content: space-between;
     color: #656565;
+    font-size: 0.8rem;
 }
 
 .num-box .num-item {
@@ -131,17 +133,30 @@
 }
 
 .num-box span {
-    margin-right: 0.8rem;
+    margin-right: 0.2rem;
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:800px) {
     .main-box .content1 {
         width: 100%;
     }
+    .main-box .content2 .time-box{
+        width: 100%;
+        font-size: 0.8rem;
+    }
+    .article-panel .num-box {
+        width: 80%;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+
     .main-box .content2 {
         display: none;
     }
     .article-panel .num-box {
         width: 100%;
+        font-size: 0.6rem;
     }
 }

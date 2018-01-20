@@ -5,7 +5,7 @@
 html,body{
     height:100%;
     width: 100%;
-    font-size: 1vw;
+    font-size: 16px;
     background-color: #ffffff;
     font-family: 'Microsoft YaHei',sans-serif;
     overflow-x: hidden;
@@ -73,6 +73,10 @@ main {
     }
     .head .content .right{
         display: none;
+    }
+    main {
+        width: 90%;
+        margin-left:5%;
     }
     aside {
         display: none;

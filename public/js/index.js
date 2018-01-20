@@ -3,23 +3,6 @@ import {Umbrella, Drop} from "./rain.js";
 import {Sun, SunnyDoll} from "./sunshine.js"
 import Cloud from "./cloud.js"
 
-/*天气浮动框——知心天气*/
-(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"));
-tpwidget("init", {
-    "flavor": "slim",
-    "location": "WM6N2PM3WY2K",
-    "geolocation": "enabled",
-    "language": "zh-chs",
-    "unit": "c",
-    "theme": "chameleon",
-    "container": "tp-weather-widget",
-    "bubble": "enabled",
-    "alarmType": "badge",
-    "uid": "U6090EE1AD",
-    "hash": "1c63ab6c1cf99f15905b36eeea5d82c2"
-});
-tpwidget("show");
-
 /*天气动画界面*/
 $("html").attr("overflow-y", "hidden");
 let canvas1 = document.getElementById("canvas1");
@@ -30,17 +13,18 @@ let pCanvas = document.getElementById("picture");
 let context1 = canvas1.getContext("2d");
 let context2 = canvas2.getContext("2d");
 let pContext = pCanvas.getContext('2d');
-let w1 = canvas1.width = $("main:first").width(),
-    h1 = canvas1.height = window.innerHeight - $("nav.head:first").height(),
-    w2 = canvas2.width = $("main:first").width(),
-    h2 = canvas2.height = window.innerHeight - $("nav.head:first").height();
+let main = $("main:first"),head=$("nav.head:first");
+let w1 = canvas1.width =main.width(),
+    h1 = canvas1.height = window.innerHeight - head.height(),
+    w2 = canvas2.width = main.width(),
+    h2 = canvas2.height = window.innerHeight -head.height();
 let pw,ph;
 
 window.onresize = function () {
-    w1 = canvas1.width = $("main:first").width();
-    h1 = canvas1.height = window.innerHeight - $("nav.head:first").height();
-    w2 = canvas2.width = $("main:first").width();
-    h2 = canvas2.height = window.innerHeight - $("nav.head:first").height();
+    w1 = canvas1.width = main.width();
+    h1 = canvas1.height = window.innerHeight - head.height();
+    w2 = canvas2.width = main.width();
+    h2 = canvas2.height = window.innerHeight - head.height();
     pw = pCanvas.width = Math.floor(w1 * 2 / 10);
     ph = pCanvas.height = Math.floor(h1 * 4 / 10);
 };
