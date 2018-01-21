@@ -7,8 +7,8 @@ import Cloud from "./cloud.js"
 $("html").attr("overflow-y", "hidden");
 let canvas1 = document.getElementById("canvas1");
 let canvas2 = document.getElementById("canvas2");
-let canvasImgsArray = ["../imgs/cloud1.png","../imgs/cloud2.png","../imgs/cloud3.png",
-                       "../imgs/rain.png","../imgs/sun.png","../imgs/sunny_doll1.png","../imgs/sunny_doll2.png"];
+let canvasImgsArray = ["/imgs/cloud1.png","/imgs/cloud2.png","/imgs/cloud3.png",
+                       "/imgs/rain.png","/imgs/sun.png","/imgs/sunny_doll1.png","/imgs/sunny_doll2.png"];
 let pCanvas = document.getElementById("picture");
 let context1 = canvas1.getContext("2d");
 let context2 = canvas2.getContext("2d");
@@ -123,7 +123,7 @@ function sunshine() {
     pContext.fillRect(0, 0, pw, ph);
     let sun = new Sun(pContext,pw,ph);
     let sunImage = new Image();
-    sunImage.src = "imgs/sun.png";
+    sunImage.src = "/imgs/sun.png";
     sun.draw(sunImage);
     setInterval(function () {
         sun.rotate();
@@ -133,8 +133,8 @@ function sunshine() {
     let sunnyDoll = new SunnyDoll(context1,w1,h1);
     let sunnyDollImage1 = new Image();
     let sunnyDollImage2 = new Image();
-    sunnyDollImage2.src = "imgs/sunny_doll2.png";
-    sunnyDollImage1.src = "imgs/sunny_doll1.png";
+    sunnyDollImage2.src = "/imgs/sunny_doll2.png";
+    sunnyDollImage1.src = "/imgs/sunny_doll1.png";
     sunnyDoll.draw(sunnyDollImage1);
     let count = 1;
     setInterval(function () {
@@ -161,9 +161,9 @@ function cloudy() {
     cloud1.draw(cloudImage1);
     cloud2.draw(cloudImage2);
     cloud3.draw(cloudImage3);
-    cloudImage1.src = "imgs/cloud1.png";
-    cloudImage2.src = "imgs/cloud2.png";
-    cloudImage3.src = "imgs/cloud3.png";
+    cloudImage1.src = "/imgs/cloud1.png";
+    cloudImage2.src = "/imgs/cloud2.png";
+    cloudImage3.src = "/imgs/cloud3.png";
     setInterval(function () {
         context2.clearRect(0,0,w2,h2);
         cloud2.move();

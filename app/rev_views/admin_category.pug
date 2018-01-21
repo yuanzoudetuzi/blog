@@ -1,0 +1,33 @@
+extends admin_index
+block content
+    if(isWrite)
+        .category-add
+                form.form-horizontal(method="POST",action="/admin/category/new")
+                    .title 添加分类
+                    .form-group
+                        label.control-label.col-md-2(for="inputCategoryName")
+                        input#inputCategoryName.form-control.col-md-10(name="category[name]")
+                    .form-group
+                        button.btn.btn-primary(type="submit") 添加
+    if(isList)
+        .category-list
+            .title 分类列表
+            .row
+                table.table.table-hover.table-bordered
+                    thead
+                        tr.bg-primary
+                            th 分类
+                            th 录入时间
+                            th 查看
+                            th 删除
+                    tbody
+                        each item in categories
+                            tr(class="item-id-" + item._id)
+                                td #{item.name}
+                                td #{moment(item.meta.creatAt).format('YYYY-MM-D')}
+                                td: a(target="_bank",href="/admin/category" + item._id) 查看
+                                td
+                                    button.btn.btn-danger.del-category(type="button",data-id=item._id) 删除
+
+
+

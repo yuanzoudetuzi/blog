@@ -1,0 +1,52 @@
+doctype
+html
+    head
+        meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
+        title=title
+        link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
+        link(href="/dist/css/layout-077f7c58e2.css",rel="stylesheet")
+        link(href="/dist/css/demo_list-82464f7d3e.css",rel="stylesheet")
+        script(src="/libs/jquery/dist/jquery.min.js")
+        script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
+
+    body
+        nav.head
+            .content
+                a.nav-link(href="/")
+                    span.glyphicon.glyphicon-home(aria-hidden="true")
+                    span 首页
+                a.nav-link(href="/article/all")
+                    span.glyphicon.glyphicon-list(aria-hidden="true")
+                    span 博文
+                a.nav-link(href="/demo/all")
+                    span.glyphicon.glyphicon-star(aria-hidden="true")
+                    span demo
+                a.nav-link
+                    span.glyphicon.glyphicon-user(aria-hidden="true")
+                    span 关于
+                a.nav-link.right(href="/admin")
+                    span.glyphicon.glyphicon-modal-window(aria-hidden="true")
+                    span 管理
+        //aside.text-center
+        //    #tp-weather-widget
+        main
+            .demo-list-contain
+                .row
+                    .col-md-4.col-xs-12
+                        .demo-box.panel
+                            a(href="/demo/detail/?id=1")
+                                img(src="/dist/imgs/demo/1-b4ff1cb883.png")
+                                .des-box
+                    .col-md-4.col-xs-12
+                        .demo-box.panel
+                            img
+                            .des-box
+                    .col-md-4.col-xs-12
+                        .demo-box.panel
+                            img
+                            .des-box
+        script(src="/dist/js/demo_list-c21cbc733f.js")
+
+
+

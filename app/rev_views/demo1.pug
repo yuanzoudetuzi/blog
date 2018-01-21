@@ -1,0 +1,35 @@
+doctype
+html
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
+    title 旋转木马幻灯片播放
+    link(href="/libs/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="/dist/css/demo_detail-019f65fb18.css")
+    link(rel="stylesheet", href="/dist/css/demo1/carousel-b632b44c72.css")
+body
+    main
+        a.back-link(href="/demo/all")
+            span.glyphicon.glyphicon-arrow-left
+            span demo列表
+        .J-Poster.poster-main(data-setting='{"width": 1000,"height":360,"posterWidth": 540,"posterHeight": 360, "scale": 0.9, "speed":500,"delay":1500,"autoPlay":true, "verticalAlign": "top"}')
+            .poster-btn.poster-pre-btn
+            ul.poster-list
+                li.poster-item
+                    img(src="/dist/imgs/demo1/1-535ddfb4be.jpg" width="100%" height="100%")
+                li.poster-item
+                    img(src="/dist/imgs/demo1/2-fcdea06606.jpg" width="100%" height="100%")
+                li.poster-item
+                    img(src="/dist/imgs/demo1/3-a7cc9a970f.jpg" width="100%" height="100%")
+                li.poster-item
+                    img(src="/dist/imgs/demo1/4-56fd098902.jpg" width="100%" height="100%")
+                li.poster-item
+                    img(src="/dist/imgs/demo1/5-24b8d81551.jpg" width="100%" height="100%")
+                li.poster-item
+                    img(src="/dist/imgs/demo1/8-c3ab4f18c6.jpg" width="100%" height="100%")
+                li.poster-item
+                    img(src="/dist/imgs/demo1/9-04beccec20.jpg" width="100%" height="100%")
+            .poster-btn.poster-next-btn
+    script(src="/libs/jquery/dist/jquery.min.js")
+    script(src="/dist/js/demo1/carousel-3ac538df61.js")
+    script.
+        $.carousel($(".J-Poster"))

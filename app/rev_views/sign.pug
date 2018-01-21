@@ -1,0 +1,35 @@
+doctype
+html
+    head
+        meta(charset='utf-8')
+        title=title
+        include head
+        style.
+            a {
+                color: white;
+                padding: 10px 14px;
+                margin-right: 10px;
+                background-color: #337ab7;
+                border-radius: 4px;
+            }
+    body
+        div(style="width:60%;margin:auto;margin-top:15%")
+            .row(style="text-align:center")
+                h3=title
+            .row
+                form(method="POST",action="/user/"+url)
+                    .modal-body
+                        .form-group
+                            label(for="signinName") 用户名
+                            input#signinName.form-control(name="user[name]",type="text")
+                        .form-group
+                            label(for="signinPassword") 密码
+                            input#signinPassword.form-control(name="user[password]",type="text")
+                    .modal-footer
+                        if(url==="signin")
+                            a(href="/signup") 注册
+                        else
+                            a(href="/signin") 登陆
+                        button.btn.btn-success(type="submit") 提交
+
+

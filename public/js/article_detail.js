@@ -1,14 +1,15 @@
 /**
  * Created by Administrator on 2017/11/9.
  */
-let seasonImgsArray = ["../imgs/spring.png","../imgs/summer.png","../imgs/autumn.png","../imgs/winter.png"];
+let seasonImgsArray = ["/imgs/spring.png","/imgs/summer.png","/imgs/autumn.png","/imgs/winter.png"];
 $(document).ready(function () {
     changeSeasonTree();
     let searchUrl = window.location.search;
+    console.log('searchUrl = ' + searchUrl);
     if (searchUrl.indexOf("?") !== -1) {
         let str = searchUrl.substr(1);
-        strs = str.split("=");
-        id = strs[1];
+        let strs = str.split("=");
+        let id = strs[1];
         console.log(id);
         $.ajax({
             url:'/article/content/?id='+id,
@@ -39,7 +40,7 @@ $(document).ready(function () {
 
 
 function changeSeasonTree() {
-    let i = 1;
+    let i = 0;
     let speed = 6;  /*单位s*/
     setTimeout(function () {
         $(".season-tree").animate({opacity: '0'},1000*speed/3,function () {

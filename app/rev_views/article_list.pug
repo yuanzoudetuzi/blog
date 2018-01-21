@@ -1,0 +1,60 @@
+extends ./layout
+block content
+    //h3 鲤.池
+    .main-box
+        .category-box
+            if(search==='all')
+                a.category-link.category-active(href="/article/all")
+                    span 全部
+            else
+                a.category-link(href="/article/all")
+                    span 全部
+            each item in categories
+                if(search===item._id)
+                    a.category-link.category-active(href="/article/category?id="+item._id)
+                        span #{item.name}
+                else
+                    a.category-link(href="/article/category?id=" + item._id)
+                        span #{item.name}
+        each item in articles
+            .panel.panel-default.article-panel
+                .main-content
+                    .content1
+                        a.title(href="/article/detail?id=" + item._id) #{item.title}
+                        .row
+                            .col-md-1.col-xs-4
+                                .label.label-primary #{item.category.name}
+                            .col-md-6.col-xs-8
+                                small Update Time: #{moment(item.meta.updateAt).format('YYYY-MM-D hh:mm:ss')}
+                        .describe #{item.abstract}
+                    .content2
+                        .time-box
+                            span.year 2017
+                            span.month 10
+                            span.day  31
+                .div
+                .num-box
+                    .num-item
+                        span.glyphicon.glyphicon-eye-open
+                        span #{item.watchNumber} 浏览
+                    .num-item
+                        span.glyphicon.glyphicon-edit
+                        span #{item.commentNumber} 评论
+                    .num-item
+                        span.glyphicon.glyphicon-thumbs-up
+                        span #{item.likeNumber} 喜欢
+        .text-center
+            ul.pagination(style="margin-top:10px")
+                -for(var i = 0; i < totalPage; i++)
+                    if(currentPage == (i + 1))
+                        li.active
+                            span #{currentPage}
+                    else
+                        if(search==="all")
+                            li
+                                a(href="/article/all?p=" + i) #{i + 1}
+                        else
+                            li
+                                a(href="/article/category?id=" + search + "&p="+i) #{i + 1}
+    script(type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8")
+    script(src="/dist/js/weather-4db40679b1.js")

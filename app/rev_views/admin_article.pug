@@ -1,0 +1,62 @@
+extends admin_index
+block content
+    if(isWrite)
+        .editor-box
+            .editor-title
+                h5 文章标题
+            .row.select-box
+                .col-md-2.select-box
+                    select.form-control#select-box
+                        each item in categories
+                            option(value=item._id) #{item.name}
+                .col-md-10.select-box
+                    input#inputTitle(required='required')
+            div.div
+                h5 添加分类
+            input#addCategory.form-control(type="text")
+            div.div
+                h5 文章简介
+            textarea#editor-des
+            #editor-tool.editor-tool
+            div.div
+                h5 文章内容
+            #editor-content.editor-content
+        .editor-control
+            span#status
+            button#savePassage.btn.btn-primary 保存
+            span &nbsp;&nbsp;&nbsp;&nbsp;
+            button#clearPassage.btn.btn-danger 清空
+        script(src="/libs/wangEditor/release/wangEditor.min.js")
+        script(src="/dist/js/write-0f05187a46.js")
+    if(isList)
+        .article-list
+            .title  文章列表
+            .row
+                table.table.table-bordered
+                    thead
+                        tr.bg-primary
+                            td 文章题目
+                            td 创建时间
+                            td 修改时间
+                            td 浏览
+                            td 喜欢
+                            td 评论
+                            td 查看
+                            td 编辑
+                            td 删除
+                    tbody
+                        each item in articles
+                            tr(class="item-id-" + item._id)
+                                td #{item.title}
+                                td #{moment(item.meta.creatAt).format('YYYY-MM-D')}
+                                td #{moment(item.meta.updateAt).format('YYYY-MM-D')}
+                                td #{item.watchNumber}
+                                td #{item.likeNumber}
+                                td #{item.commentNumber}
+                                td: a(target="_bank",href="/article/detail?id="+item._id) 查看
+                                td: a(target="_bank",href="/admin/article/edit?id="+item._id) 编辑
+                                td
+                                    button.btn.btn-danger.del-article(type="button",data-id=item._id) 删除
+
+
+
