@@ -5,40 +5,41 @@ html
         meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
         title=title
         link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
-        link(rel="stylesheet",href="/dist/css/article_detail-9285cc50a1.css")
+        link(rel="stylesheet",href="/dist/css/article_detail-82a398b3cb.css")
     body
-        aside
-            div.season-tree
-        main
-            a.back-link(href="/article/all")
-              span.glyphicon.glyphicon-arrow-left
-              span 文章列表
-            .text-center
-                h3 #{article.title}
-            .num-time
-                .num-box
-                    a.num-item(href="/article/category/?id="+article.category._id)
-                        span.glyphicon.glyphicon-home
-                        small #{article.category.name}
-                    .num-item
-                        span.glyphicon.glyphicon-eye-open
-                        small #{article.watchNumber} 浏览
-                    .num-item
-                        span.glyphicon.glyphicon-edit
-                        small #{article.commentNumber} 评论
-                    .num-item
-                        span.glyphicon.glyphicon-thumbs-up
-                        small#like_num #{article.likeNumber}
-                        small &nbsp;&nbsp;喜欢
-                .time-box
-                    span.glyphicon.glyphicon-time
-                    small  #{moment(article.meta.updateAt).format("YYYY-MM-D")}
-            article#article
-        footer
-           .text-center
-               .like
-                   span.glyphicon.glyphicon-heart
-                   strong 喜欢
+        div.max-box
+            aside
+                div.season-tree
+            main
+                a.back-link(href="/article/all")
+                  span.glyphicon.glyphicon-arrow-left
+                  span 文章列表
+                .text-center
+                    h3 #{article.title}
+                .num-time
+                    .num-box
+                        a.num-item(href="/article/category/?id="+article.category._id)
+                            span.glyphicon.glyphicon-home
+                            small #{article.category.name}
+                        .num-item
+                            span.glyphicon.glyphicon-eye-open
+                            small #{article.watchNumber} 浏览
+                        .num-item
+                            span.glyphicon.glyphicon-edit
+                            small #{article.commentNumber} 评论
+                        .num-item
+                            span.glyphicon.glyphicon-thumbs-up
+                            small#like_num #{article.likeNumber}
+                            small &nbsp;&nbsp;喜欢
+                    .time-box
+                        span.glyphicon.glyphicon-time
+                        small  #{moment(article.meta.updateAt).format("YYYY-MM-D")}
+                article#article
+            footer
+               .text-center
+                   .like
+                       span.glyphicon.glyphicon-heart
+                       strong 喜欢
         script(src="/libs/jquery/dist/jquery.min.js")
         script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
-        script(src="/dist/js/article_detail-dbcdf1a940.js")
+        script(src="/dist/js/article_detail-01e8f10682.js")

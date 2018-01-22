@@ -22,10 +22,18 @@ a:hover {
 nav.head{
     position: fixed;
     top:0;
-    left:0;
-    width: 100%;
+    left: calc((100% - 1400px) / 2);
+    /*left: calc((100% - 1400px)/2);*/
+    width: 1400px;
+    margin: 0 auto;
     background-color:#ffffff;
     z-index: 999;
+}
+@media screen and (max-width: 1400px) {
+    nav.head {
+        left:0;
+        width: 100%;
+    }
 }
 .head .content {
     width: 80%;
@@ -50,6 +58,11 @@ nav.head{
 .head .content .right{
     float:right;
 }
+.max-box {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 main {
     margin-top: 50px;
     margin-left: 10%;
@@ -67,16 +80,25 @@ main {
     left:0;
     z-index:5;
 }
-@media screen and (max-width: 480px){
-    .nav-link {
-        padding:10px 0;
-    }
+@media screen and (max-width:700px){
     .head .content .right{
         display: none;
+    }
+    .nav-link {
+        padding:10px 10px;
+    }
+}
+@media screen and (max-width: 480px){
+    html {
+        font-size: 12px;
     }
     main {
         width: 90%;
         margin-left:5%;
+    }
+    .nav-link {
+        padding:10px 0;
+        font-size: 0.8rem;
     }
     aside {
         display: none;
@@ -89,16 +111,17 @@ aside {
     position: fixed;
     top:50px;
     left:0;
-    width: 10%;
-    padding: 0 10px;
+    width: calc((100% - 1400px) / 2);
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
-/*.aside-item {*/
-    /*margin-top: 2rem;*/
-    /*padding-bottom: .5rem;*/
-    /*border-bottom: 2px solid #407ab9;*/
-/*}*/
+@media screen and (max-width: 1400px){
+    aside {
+        width: 10%;
+    }
+}
+
 #tp-weather-widget {
     font-size: 1rem;
     cursor: pointer;

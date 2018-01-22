@@ -5,6 +5,7 @@ html,body{
     background-color: #ffffff;
     font-family: 'Microsoft YaHei',sans-serif;
 }
+
 a {
     color: black;
     text-decoration: none;
@@ -39,6 +40,9 @@ aside {
     background-size: 60% 60%;
 }
 @media screen and (max-width: 480px){
+    html {
+        font-size: 12px;
+    }
     main {
         width: 90%;
         margin: 0 auto;
@@ -78,7 +82,7 @@ aside {
 }
 
 .num-box .num-item {
-    margin-right:3rem ;
+    margin-right:2rem ;
 }
 
 a.num-item {
@@ -96,20 +100,32 @@ a.num-item {
 }
 
 
-@media screen and (max-width: 800px){
-    .num-box{
-        width: 100%;
-        font-size: 0.3rem;
-    }
-    .time-box{
-        display: none;
-    }
+@media screen and (max-width: 1000px){
+    /*.num-box{*/
+        /*width: 100%;*/
+        /*!*font-size: 0.3rem;*!*/
+    /*}*/
+    /*.time-box{*/
+        /*display: none;*/
+    /*}*/
     .num-box .num-item {
         margin-right:0.6rem ;
     }
     .num-box span {
         margin-right: 0.2rem;
     }
+}
+
+@media screen and (max-width: 700px){
+    .num-time{
+        flex-direction: column-reverse;
+
+    }
+    .num-box,.time-box {
+        width: 100%;
+        justify-content: center;
+    }
+
 }
 
 #article {

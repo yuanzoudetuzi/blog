@@ -29,7 +29,8 @@ $(document).ready(function () {
                 success:function (data) {
                     if(data.status===1) {
                         console.log(data);
-                        $("#like_num").html(++num);
+                        let likeBtn =$("#like_num"),num=likeBtn.html();
+                        likeBtn.html(++num);
                     }
                 }
             });

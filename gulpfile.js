@@ -35,10 +35,8 @@ gulp.task('browser-sync', function () {
     gulp.watch('./app/views/*').on('change', reload);
 });
 gulp.task('minJS', function () {
-    del([
-        'public/dist/js',
-    ]);
-    gulp.src(['public/js/**/*.js'].concat(bundleIngoreJsFile))
+    del.sync(['public/dist/js']);
+   return gulp.src(['public/js/**/*.js'].concat(bundleIngoreJsFile))
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015']
@@ -48,13 +46,18 @@ gulp.task('minJS', function () {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('public/dist/js'))
         .pipe(rev.manifest())
-        .pipe(gulp.dest('rev/js'))
+        .pipe(gulp.dest('rev/js'));
+   // return del([
+   //      'public/dist/js',
+   //  ]).then(()=>{
+   //
+   //  });
+
 });
+
 gulp.task('minCSS', function () {
-    del([
-        'public/dist/css',
-    ]);
-    gulp.src('public/css/**/*.css')
+    del.sync(['public/dist/css']);
+   return gulp.src('public/css/**/*.css')
         .pipe(sourcemaps.init())
         .pipe(minCSS())
         .pipe(rev())
@@ -62,23 +65,33 @@ gulp.task('minCSS', function () {
         .pipe(gulp.dest('public/dist/css'))
         .pipe(rev.manifest())
         .pipe(gulp.dest('rev/css'));
+   // return del([
+   //      'public/dist/css',
+   //  ]).then(()=> {
+   //
+   //  });
 
 });
+
 gulp.task('minImg', function () {
-    del([
-        'public/dist/imgs',
-    ]);
-    gulp.src('public/imgs/**/*.*')
+    del.sync(['public/dist/imgs']);
+    return gulp.src('public/imgs/**/*.*')
         .pipe(minImg())
         .pipe(rev())
         .pipe(gulp.dest('public/dist/imgs'))
         .pipe(rev.manifest())
         .pipe(gulp.dest('rev/imgs'));
+   // return del([
+   //      'public/dist/imgs',
+   //  ]).then(()=>{
+   //
+   //  });
 });
 
 //index包含import,需要单独使用browserify进行模块打包
 gulp.task('bundle-js', function () {
-    return browserify({
+    del.sync(['public/dist/js/index-*']);
+   return browserify({
         entries: 'public/js/index.js', //指定打包入口文件
         debug: true   //告知browserify在运行同时生成内联sourcemap用于调试
     })
@@ -105,23 +118,26 @@ gulp.task('bundle-js', function () {
         .pipe(gulp.dest('public/dist/js'))  //输出打包后的文件
         .pipe(rev.manifest())
         .pipe(gulp.dest('rev/bundle'));
-
+   // return del([]).then(()=>{
+   //
+   //  });
 });
 
 gulp.task('rev',function () {
+    del.sync(['app/rev_views/']);
     gulp.src(['rev/**/*.json','app/views/*.pug'])
         .pipe(revCollector({
-             replaceReved:true,       //一定要加上这一句，不然不会替换掉上一次的值
+            replaceReved:true,       //一定要加上这一句，不然不会替换掉上一次的值
             dirReplacements: {
                 '/css/':'/dist/css/',     //确定路径的更换
                 '/js/':'/dist/js/',
                 '/imgs/':'/dist/imgs/',
             }
         }))
-        .pipe(gulp.dest('app/rev_views'));
-    gulp.src(['rev/**/*.json','public/dist/js/**/*.*','!public/dist/js/article_detail.js'])
+        .pipe(gulp.dest('app/rev_views/'));
+    gulp.src(['rev/**/*.json','public/dist/js/**/*.*'])
         .pipe(revCollector({
-             replaceReved:true,       //一定要加上这一句，不然不会替换掉上一次的值
+            replaceReved:true,       //一定要加上这一句，不然不会替换掉上一次的值
             dirReplacements: {
                 '/css/':'/dist/css/',     //确定路径的更换
                 '/js/':'/dist/js/',
@@ -139,6 +155,9 @@ gulp.task('rev',function () {
             }
         }))
         .pipe(gulp.dest('public/dist/css/'));
+
+
+
 });
 
 gulp.task('watch',function () {

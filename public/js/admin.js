@@ -3,15 +3,15 @@
  */
 //导航栏控制
 $('.collapseItem').click(function () {
-    var target = $(this);
-    var memu = target.next();
+    let target = $(this);
+    let memu = target.next();
     $(memu).slideToggle();
 });
 
 $('.del-category').click(function (e) {
-    var target = $(e.target);
-    var id = target.data('id');
-    var tr = $('.item-id-'+id);
+    let target = $(e.target);
+    let id = target.data('id');
+    let tr = $('.item-id-'+id);
     $.ajax({
         type:'DELETE',
         url:'/admin/category/list?id='+id,
@@ -27,9 +27,9 @@ $('.del-category').click(function (e) {
 
 
 $('.del-article').click(function (e) {
-    var target = $(e.target);
-    var id = target.data('id');
-    var tr = $('.item-id-'+id);
+    let target = $(e.target);
+    let id = target.data('id');
+    let tr = $('.item-id-'+id);
     $.ajax({
         type:'DELETE',
         url:'/admin/article/list?id='+id,
