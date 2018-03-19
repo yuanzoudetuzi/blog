@@ -16,8 +16,11 @@ a {
     cursor: pointer;
 }
 a:hover {
-    color: rgba(0,0,0,.12);
     text-decoration: none;
+}
+a.nav-link:hover {
+    color: #407ab9;
+    font-weight: bolder;
 }
 nav.head{
     position: fixed;

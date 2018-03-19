@@ -22,9 +22,9 @@ html
                 a.nav-link(href="/demo/all")
                     span.glyphicon.glyphicon-star(aria-hidden="true")
                     span demo
-                a.nav-link
-                    span.glyphicon.glyphicon-user(aria-hidden="true")
-                    span 关于
+                //a.nav-link()
+                //    span.glyphicon.glyphicon-user(aria-hidden="true")
+                //    span 关于
                 a.nav-link.right(href="/admin")
                     span.glyphicon.glyphicon-modal-window(aria-hidden="true")
                     span 管理
@@ -34,19 +34,14 @@ html
             .demo-list-contain
                 .row
                     .col-md-4.col-xs-12
-                        .demo-box.panel
-                            a(href="/demo/detail/?id=1")
-                                img(src="/imgs/demo/1.png")
-                                .des-box
-                    .col-md-4.col-xs-12
-                        .demo-box.panel
-                            img
-                            .des-box
-                    .col-md-4.col-xs-12
-                        .demo-box.panel
-                            img
-                            .des-box
-        script(src="/js/demo_list.js")
+                        .demo-box-wrapper
+                            .demo-box
+                                a(href="/demo/detail/?id=1")
+                                    img(src="/imgs/demo/1.png")
+                                    .des-box
+                                        .title 旋转木马轮播图
+                                        .text 采用JQuery实现旋转木马轮播图。
+        //script(src="/js/demo_list.js")
 
 
 
