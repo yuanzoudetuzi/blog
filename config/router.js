@@ -27,8 +27,8 @@ module.exports = function (app) {
     app.post('/user/signup',User.signup);
 
 // admin
-//     app.get('/admin',User.signinRequire,User.adminRequire,Admin.index)
-     app.get('/admin',Admin.index);
+    app.get('/admin',User.signinRequire,User.adminRequire,Admin.index);
+//     app.get('/admin',Admin.index);
 
 //article
      app.get('/admin/article/list',Article.list);

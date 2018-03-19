@@ -14,7 +14,7 @@ var dbUrl =  'mongodb://localhost/blog';
 var port = process.env.PORT||8080;
 app.locals.moment = require('moment');
 
-app.set('views','./app/rev_views');      /*设置视图文件路径*/
+app.set('views','./app/views');      /*设置视图文件路径*/
 app.set('view engine','pug');        /*设置模板引擎*/
 app.use(express.static(path.join(__dirname,'public')));/*设置静态资源文件路径*/
 app.use(bodyParser.json());

@@ -10,7 +10,7 @@ const KEY = "dzbdjfztpxc77zrq"; // 心知天气用户key，请更换成您自己
 let weather = new Weather(UID, KEY);
 let count = 2;  //每页返回的文章数目
 exports.index = function (req, res) {
-    res.render('index', {
+    res.render('index1', {
         title: '鲤.池'
     });
 };
