@@ -37,8 +37,8 @@ exports.write = function (req,res) {
 
 exports.new = function (req,res) {
     var _article = req.body;
-    console.log("_article");
-    console.log(_article);
+    // console.log("_article");
+    // console.log(_article);
     var categoryID;
   /*  var articleT;*/
    if(req.body.category) {
@@ -52,14 +52,14 @@ exports.new = function (req,res) {
                    console.log(err);
                    return res.send('保存失败');
                }
-               console.log('category');
-               console.log(category);
-               console.log(category.articles);
+               // console.log('category');
+               // console.log(category);
+               // console.log(category.articles);
                category.articles.push(article._id);
                category.save(function (err,cat) {
                    if(err)  return res.send('文章创建成功，但不能添加到分类中');
-                   console.log('after push category:');
-                   console.log(cat);
+                   // console.log('after push category:');
+                   // console.log(cat);
                    return res.send('保存成功');
                });
            });
@@ -67,7 +67,7 @@ exports.new = function (req,res) {
        });
 
    } else {
-       console.log('add category');
+        console.log('add category');
        var _category = req.body.addCategory;
        var categoryNew = new Category({
            name:_category,
@@ -77,8 +77,8 @@ exports.new = function (req,res) {
            if(err) return res.send('创建新类型失败');
            _article['category'] = category._id;
            delete _article.addCategory;
-           console.log('after rectify _article:');
-           console.log(_article);
+           // console.log('after rectify _article:');
+           // console.log(_article);
            var article = new Article(_article);
            article.save(function (err,article) {
                if(err) return res.send('保存失败');

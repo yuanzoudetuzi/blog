@@ -9,14 +9,13 @@ $(document).ready(function () {
     editor.customConfig.pasteFilterStyle = false;
     editor.customConfig.uploadImgShowBase64 = true ;  // 使用 base64 保存图片
     editor.create();
-
     console.log(window.location.search);
     /*判断是写文章还是编辑*/
     var url = window.location.search;
     if (url.indexOf("?") != -1) {
         var str = url.substr(1);
-        strs = str.split("=");
-        id = strs[1];
+        str = str.split("=");
+        id = str[1];
         getArticle(editor,id);
         $('#savePassage').click(updatePassage);
     } else {

@@ -48,8 +48,8 @@ block content
                         each item in articles
                             tr(class="item-id-" + item._id)
                                 td #{item.title}
-                                td #{moment(item.meta.creatAt).format('YYYY-MM-D')}
-                                td #{moment(item.meta.updateAt).format('YYYY-MM-D')}
+                                td #{moment.utc(item.meta.createAt).format('YYYY-MM-D')}
+                                td #{moment.utc(item.meta.updateAt).format('YYYY-MM-D')}
                                 td #{item.watchNumber}
                                 td #{item.likeNumber}
                                 td #{item.commentNumber}

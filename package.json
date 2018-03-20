@@ -26,7 +26,11 @@
     "querystring": "^0.2.0",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "better-scroll": "^1.8.4",
+    "vue": "^2.5.2",
+    "vue-resource": "^1.5.0",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "arr-diff": "^4.0.0",

@@ -58,13 +58,27 @@ var ArticleSchema = Schema({
 });
 
 ArticleSchema.pre('save',function (next) {
+    let month = Math.floor(2*Math.random());
+    let day = Math.floor(30*Math.random());
+    let hour = Math.floor(8+14*Math.random());
+    let minute = Math.floor(60*Math.random());
+    let second = Math.floor(60*Math.random());
+    let date1 = Date.UTC(2017,11,day,hour,minute,second);
+    let date2 = Date.UTC(2018,month,day,hour,minute,second);
+    let dateArr = [date1, date2];
+    let index = Math.floor(2*Math.random());
+    let date = dateArr[index];
     if(this.isNew) {
         // this.meta.createAt = this.meta.updateAt = Date.now();
         this.meta.createAt = this.meta.updateAt =  date;
     } else {
         // this.meta.updateAt = Date.now();
-        this.meta.updateAt =  date;
+        let tempDate = this.meta.updateAt;
+        tempDate.setDate(tempDate.getDate()+1);
+        this.meta.updateAt =  tempDate;
     }
+    console.log('this.meta.createAt');
+    console.log(this.meta.createAt);
     console.log('this.meta.updateAt');
     console.log(this.meta.updateAt);
    next();

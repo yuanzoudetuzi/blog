@@ -27,7 +27,7 @@ block content
             span &nbsp;&nbsp;&nbsp;&nbsp;
             button#clearPassage.btn.btn-danger 清空
         script(src="/libs/wangEditor/release/wangEditor.min.js")
-        script(src="/dist/js/write-0f05187a46.js")
+        script(src="/dist/js/write-4ce901fa26.js")
     if(isList)
         .article-list
             .title  文章列表
@@ -48,8 +48,8 @@ block content
                         each item in articles
                             tr(class="item-id-" + item._id)
                                 td #{item.title}
-                                td #{moment(item.meta.creatAt).format('YYYY-MM-D')}
-                                td #{moment(item.meta.updateAt).format('YYYY-MM-D')}
+                                td #{moment.utc(item.meta.createAt).format('YYYY-MM-D')}
+                                td #{moment.utc(item.meta.updateAt).format('YYYY-MM-D')}
                                 td #{item.watchNumber}
                                 td #{item.likeNumber}
                                 td #{item.commentNumber}
