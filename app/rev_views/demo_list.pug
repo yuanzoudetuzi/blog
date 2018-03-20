@@ -5,8 +5,8 @@ html
         meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
         title=title
         link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
-        link(href="/dist/css/layout-72ade52082.css",rel="stylesheet")
-        link(href="/dist/css/demo_list-82464f7d3e.css",rel="stylesheet")
+        link(href="/dist/css/layout-ee6545f3bf.css",rel="stylesheet")
+        link(href="/dist/css/demo_list-9e809cb334.css",rel="stylesheet")
         script(src="/libs/jquery/dist/jquery.min.js")
         script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
 
@@ -22,9 +22,9 @@ html
                 a.nav-link(href="/demo/all")
                     span.glyphicon.glyphicon-star(aria-hidden="true")
                     span demo
-                a.nav-link
-                    span.glyphicon.glyphicon-user(aria-hidden="true")
-                    span 关于
+                //a.nav-link()
+                //    span.glyphicon.glyphicon-user(aria-hidden="true")
+                //    span 关于
                 a.nav-link.right(href="/admin")
                     span.glyphicon.glyphicon-modal-window(aria-hidden="true")
                     span 管理
@@ -34,19 +34,14 @@ html
             .demo-list-contain
                 .row
                     .col-md-4.col-xs-12
-                        .demo-box.panel
-                            a(href="/demo/detail/?id=1")
-                                img(src="/dist/imgs/demo/1-b4ff1cb883.png")
-                                .des-box
-                    .col-md-4.col-xs-12
-                        .demo-box.panel
-                            img
-                            .des-box
-                    .col-md-4.col-xs-12
-                        .demo-box.panel
-                            img
-                            .des-box
-        script(src="/dist/js/demo_list-c21cbc733f.js")
+                        .demo-box-wrapper
+                            .demo-box
+                                a(href="/demo/detail/?id=1")
+                                    img(src="/dist/imgs/demo/1-b4ff1cb883.png")
+                                    .des-box
+                                        .title 旋转木马轮播图
+                                        .text 采用JQuery实现旋转木马轮播图。
+        //script(src="/dist/js/demo_list-c21cbc733f.js")
 
 
 

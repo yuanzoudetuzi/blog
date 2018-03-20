@@ -132,6 +132,7 @@ gulp.task('rev',function () {
                 '/css/':'/dist/css/',     //确定路径的更换
                 '/js/':'/dist/js/',
                 '/imgs/':'/dist/imgs/',
+                // '../imgs/':'/dist/imgs/', 没用
             }
         }))
         .pipe(gulp.dest('app/rev_views/'));

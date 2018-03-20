@@ -29,9 +29,9 @@ block content
                         .describe #{item.abstract}
                     .content2
                         .time-box
-                            span.year 2017
-                            span.month 10
-                            span.day  31
+                            span.year #{moment(item.meta.updateAt).format('YYYY')}
+                            span.month #{moment(item.meta.updateAt).format('MM')}
+                            span.day  #{moment(item.meta.updateAt).format('D')}
                 .div
                 .num-box
                     .num-item
