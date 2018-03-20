@@ -49,7 +49,7 @@ exports.del = function (req,res) {
     if (id) {
         Category.remove({_id:id},function (err,category) {
             if(err) {
-                console.log('Delete movie is failed, ERR is ' + err);
+                console.log('Delete category is failed, ERR is ' + err);
                 res.redirect('/admin/category/list');
             } else {
                 Article.update({category:id},{category:''}, {multi: true}, function (err,articles) {

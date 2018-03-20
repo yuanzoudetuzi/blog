@@ -3,14 +3,14 @@ block content
     //h3 鲤.池
     .main-box
         .category-box
-            if(search==='all')
+            if(search=='all')
                 a.category-link.category-active(href="/article/all")
                     span 全部
             else
                 a.category-link(href="/article/all")
                     span 全部
             each item in categories
-                if(search===item._id)
+                if(search==item._id.toString())
                     a.category-link.category-active(href="/article/category?id="+item._id)
                         span #{item.name}
                 else

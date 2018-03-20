@@ -5,8 +5,8 @@ html
         meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
         title=title
         link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
-        link(href="/dist/css/layout-aee4dcb170.css",rel="stylesheet")
-        link(href="/dist/css/demo_list-815ca1209b.css",rel="stylesheet")
+        link(href="/dist/css/layout-460a192b45.css",rel="stylesheet")
+        link(href="/dist/css/demo_list-7d5a11405a.css",rel="stylesheet")
         script(src="/libs/jquery/dist/jquery.min.js")
         script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
 
@@ -16,12 +16,22 @@ html
                 a.nav-link(href="/")
                     span.glyphicon.glyphicon-home(aria-hidden="true")
                     span 首页
-                a.nav-link(href="/article/all")
-                    span.glyphicon.glyphicon-list(aria-hidden="true")
-                    span 博文
-                a.nav-link(href="/demo/all")
-                    span.glyphicon.glyphicon-star(aria-hidden="true")
-                    span demo
+                if(headNav === "blog")
+                    a.nav-link.active-link(href="/article/all")
+                        span.glyphicon.glyphicon-list(aria-hidden="true")
+                        span 博文
+                else
+                    a.nav-link(href="/article/all")
+                        span.glyphicon.glyphicon-list(aria-hidden="true")
+                        span 博文
+                if(headNav === "demo")
+                    a.nav-link.active-link(href="/demo/all")
+                        span.glyphicon.glyphicon-list(aria-hidden="true")
+                        span demo
+                else
+                    a.nav-link(href="/demo/all")
+                        span.glyphicon.glyphicon-star(aria-hidden="true")
+                        span demo
                 //a.nav-link()
                 //    span.glyphicon.glyphicon-user(aria-hidden="true")
                 //    span 关于
@@ -37,10 +47,18 @@ html
                         .demo-box-wrapper
                             .demo-box
                                 a(href="/demo/detail/?id=1")
-                                    img(src="/dist/imgs/demo/1-b4ff1cb883.png")
+                                    img(src="/dist/imgs/demo/1-d4f3f11b27.png")
                                     .des-box
                                         .title 旋转木马轮播图
                                         .text 采用JQuery实现旋转木马轮播图。
+                    .col-md-4.col-xs-12
+                        .demo-box-wrapper
+                            .demo-box
+                                a(href="/demo/detail/?id=1")
+                                    img(src="/dist/imgs/demo/sell_app-2c83e7951e.png")
+                                    .des-box
+                                        .title 外卖 WEB APP
+                                        .text 采用Vue实现移动端的外卖web app部分界面，切换到移动界面查看效果更佳（PS:切换之后记得刷新一下）。
         //script(src="/dist/js/demo_list-c21cbc733f.js")
 
 

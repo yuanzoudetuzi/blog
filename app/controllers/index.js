@@ -9,6 +9,7 @@ const UID = "U6090EE1AD"; // 心知天气用户ID，请更换成您自己的用�
 const KEY = "dzbdjfztpxc77zrq"; // 心知天气用户key，请更换成您自己的 Key
 let weather = new Weather(UID, KEY);
 let count = 2;  //每页返回的文章数目
+let headNav = "blog";  /*导航高亮部分*/
 exports.index = function (req, res) {
     res.render('index1', {
         title: '鲤.池'
@@ -68,7 +69,8 @@ exports.getALL = function (req, res) {
                     search:search,
                     articles: results,
                     totalPage:Math.ceil(articles.length/count),
-                    currentPage:page+1
+                    currentPage:page+1,
+                    headNav:headNav
                 });
             });
     });
@@ -77,7 +79,7 @@ exports.getALL = function (req, res) {
 exports.getPart = function (req, res) {
     let categoryId = req.query.id;
     let page = parseInt(req.query.p,10) || 0;
-    console.log('id = ' + categoryId);
+    console.log('categoryId id = ' + categoryId);
     Category
         .findOne({_id: categoryId})
         .populate({
@@ -87,18 +89,21 @@ exports.getPart = function (req, res) {
         .sort({'meta.updateAt': -1})
         .exec(function (err, category) {
             if (err) return res.redirect('/');
-            console.log('category articles');
-            console.log(category);
+            // console.log('category articles');
+            // console.log(category);
             let articles = category.articles;
             let results = articles.slice(page*count,count+page*count);
             console.log('toltal page = ' +Math.ceil(articles.length/count) );
             let search = category._id;
+            // console.log('typeof category._id');
+            // console.log(typeof category._id);
             Category.fetch(function (err,categories) {
                 if(err) return res.redirect("/");
                 return res.render('article_list', {
                     title: '鲤.池',
                     categories: categories,
                     search:search,
+                    headNav:headNav,
                     articles: results,
                     totalPage:Math.ceil(articles.length/count),
                     currentPage:page+1

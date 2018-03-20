@@ -1,6 +1,8 @@
+
 exports.all = function (req,res) {
     res.render("demo_list",{
-        title:"鲤.池"
+        title:"鲤.池",
+        headNav: "demo"
     })
 };
 

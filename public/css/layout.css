@@ -68,6 +68,10 @@ nav .background {
     font-size: 16px;
 }
 
+.nav-link.active-link {
+    color: #407ab9;
+    font-weight: bolder;
+}
 
 .nav-link span {
     margin-right: 10px;
