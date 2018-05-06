@@ -2,8 +2,8 @@
  * Created by Administrator on 2017/10/31.
  */
 // var mongoose = require('mongoose');
-// var Schema = mongoose.Schema;
-// var ObjectId = Schema.Types.ObjectId;
+ var Schema = mongoose.Schema;
+ var ObjectId = Schema.Types.ObjectId;
 // let month = Math.floor(2*Math.random());
 // let day = Math.floor(30*Math.random());
 // let hour = Math.floor(8+14*Math.random());
