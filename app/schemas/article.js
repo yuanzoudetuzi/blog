@@ -47,12 +47,12 @@ var ArticleSchema = Schema({
          createAt:{
              type:Date,
              default:Date.now()
-             default: date
+             // default: date
          },
          updateAt:{
              type:Date,
              default:Date.now()
-             default: date
+             // default: date
          }
      }
 });
