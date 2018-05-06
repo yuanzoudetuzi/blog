@@ -25,13 +25,13 @@ block content
                             .col-md-1.col-xs-4
                                 .label.label-primary #{item.category.name}
                             .col-md-6.col-xs-8
-                                small Update Time: #{moment.utc(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
+                                small Update Time: #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
                         .describe #{item.abstract}
                     .content2
                         .time-box
-                            span.year #{moment.utc(item.meta.updateAt).format('YYYY')}
-                            span.month #{moment.utc(item.meta.updateAt).format('MM')}
-                            span.day  #{moment.utc(item.meta.updateAt).format('DD')}
+                            span.year #{moment(item.meta.updateAt).format('YYYY')}
+                            span.month #{moment(item.meta.updateAt).format('MM')}
+                            span.day  #{moment(item.meta.updateAt).format('DD')}
                 .div
                 .num-box
                     .num-item
