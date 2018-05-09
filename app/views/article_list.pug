@@ -22,8 +22,8 @@ block content
                     .content1
                         a.title(href="/article/detail?id=" + item._id) #{item.title}
                         .row
-                            .col-md-1.col-xs-4
-                                .label.label-primary #{item.category.name}
+                            .col-md-2.col-xs-4
+                                .label.label-primary.category(title=item.category.name) #{item.category.name}
                             .col-md-6.col-xs-8
                                 small Update Time: #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
                         .describe #{item.abstract}
@@ -58,3 +58,4 @@ block content
                                 a(href="/article/category?id=" + search + "&p="+i) #{i + 1}
     script(type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8")
     script(src="/js/weather.js")
+    script(src="/js/article_list.js")
